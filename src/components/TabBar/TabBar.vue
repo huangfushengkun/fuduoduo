@@ -1,23 +1,25 @@
 <template>
   <div class="bottom-tab">
-    <router-link exact active-class="active" tag="span" to="/home" class="tab-item">
-      <img :src="'/home' === $route.path ? tabBarImgArr[0].selected : tabBarImgArr[0].normal " alt="">
+
+    <!-- 判断$route.path.includes('/home') 是否包含 ES6 -->  
+    <router-link  active-class="active" tag="span" to="/home" class="tab-item">
+      <img :src="$route.path.includes('/home') ? tabBarImgArr[0].selected : tabBarImgArr[0].normal " alt="">
       <span>首页</span>
     </router-link>
-    <router-link exact active-class="active" tag="span" to="/recommend" class="tab-item">
-      <img :src="'/recommend' === $route.path ? tabBarImgArr[1].selected : tabBarImgArr[1].normal " alt="">
+    <router-link  active-class="active" tag="span" to="/recommend" class="tab-item">
+      <img :src="$route.path.includes('/recommend') ? tabBarImgArr[1].selected : tabBarImgArr[1].normal " alt="">
       <span>推荐</span>
     </router-link>
-    <router-link exact active-class="active" tag="span" to="/search" class="tab-item">
-      <img :src="'/search' === $route.path ? tabBarImgArr[2].selected : tabBarImgArr[2].normal " alt="">
+    <router-link  active-class="active" tag="span" to="/search" class="tab-item">
+      <img :src="$route.path.includes('/search') ? tabBarImgArr[2].selected : tabBarImgArr[2].normal " alt="">
       <span>搜索</span>
     </router-link>
-    <router-link exact active-class="active" tag="span" to="/chat" class="tab-item">
-      <img :src="'/chat' === $route.path ? tabBarImgArr[3].selected : tabBarImgArr[3].normal " alt="">
+    <router-link  active-class="active" tag="span" to="/chat" class="tab-item">
+      <img :src="$route.path.includes('/chat') ? tabBarImgArr[3].selected : tabBarImgArr[3].normal " alt="">
       <span>聊天</span>
     </router-link>
-    <router-link exact active-class="active" tag="span" to="/me" class="tab-item">
-      <img :src="'/me' === $route.path ? tabBarImgArr[4].selected : tabBarImgArr[4].normal " alt="">
+    <router-link  active-class="active" tag="span" to="/me" class="tab-item">
+      <img :src="$route.path.includes('/me') ? tabBarImgArr[4].selected : tabBarImgArr[4].normal " alt="">
       <span>我的</span>
     </router-link>
   </div>

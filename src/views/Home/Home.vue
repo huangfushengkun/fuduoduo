@@ -1,11 +1,13 @@
 <template>
   <div class="home">
     <ly-tab 
+    class="fixd"
     v-model="selectedId"
     :items="items"
-    :options="options">
-
+    :options="options"
+    @change="handleChange">
     </ly-tab>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -25,12 +27,23 @@ export default {
       ],
       options: {
         activeColor: '#e9232c', //设置选中颜色
-      }
+      },
+      //二级路由路径
+      pathArr: [
+        '/home/hot','/home/dress','/home/box','/home/mbaby',
+        '/home/general','/home/food','/home/shirt','/home/man','/home/ele'
+      ]
     }
   },
   watch:{},
   computed:{},
-  methods:{},
+  methods:{
+    //二级路由点击事件函数
+    handleChange (item,index) {
+      console.log(item,index)
+      this.$router.replace(this.pathArr[index])
+    }
+  },
   created(){},
   mounted(){}
 }
@@ -40,5 +53,11 @@ export default {
   width: 100%;
   height: 100%;
   background-color: purple;
+  .fixd{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+  }
 }
 </style>
